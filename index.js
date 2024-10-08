@@ -118,9 +118,10 @@ app.patch(
 app.get("/comments/:postId", CommentController.getCommentsByPost);
 app.post("/comments", checkAuth, CommentController.addComment);
 
-app.listen(4444, (err) => {
+const port = process.env.PORT || 9001;
+app.listen(port, (err) => {
   if (err) {
     return console.log(err);
   }
-  console.log(`___!Server OK!___`);
+  console.log(`___!Server OK!___`, "listen port", port);
 });
